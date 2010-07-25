@@ -34,6 +34,12 @@ remote_file "/tmp/ruby-enterprise-#{node[:ruby_enterprise][:version]}.tar.gz" do
   not_if { ::File.exists?("/tmp/ruby-enterprise-#{node[:ruby_enterprise][:version]}.tar.gz") }
 end
 
+bash "create dir" do
+  code <<-CODE
+  mkdir -p #{node[:ruby_enterprise][:gems_dir]}/gems;
+  CODE
+end
+
 bash "Install Ruby Enterprise Edition" do
   cwd "/tmp"
   code <<-EOH
