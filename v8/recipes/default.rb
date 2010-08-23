@@ -16,16 +16,16 @@ execute "checkout v8" do
 end
 
 # http://code.google.com/p/v8/issues/detail?id=413
-remote_file "/usr/src/v8/no-strict-aliasing.patch" do
-  source "no-strict-aliasing.patch"
-  mode "644"
-end
+#remote_file "/usr/src/v8/no-strict-aliasing.patch" do
+#  source "no-strict-aliasing.patch"
+#  mode "644"
+#end
 
-execute "patch v8" do
-  command "patch < no-strict-aliasing.patch && touch patched"
-  creates "/usr/src/v8/patched"
-  cwd "/usr/src/v8"
-end
+#execute "patch v8" do
+#  command "patch < no-strict-aliasing.patch && touch patched"
+#  creates "/usr/src/v8/patched"
+#  cwd "/usr/src/v8"
+#end
 
 execute "build v8" do
   command "scons"
