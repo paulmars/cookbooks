@@ -1,10 +1,9 @@
 execute "link up manage" do
   command "ln -s /vagrant/config/nginx/dev.conf /etc/nginx/conf.d/manage.conf"
   command "sudo /etc/init.d/nginx restart"
-#  creates "/usr/src/v8/ChangeLog"
 end
 
-excute "add gems" do
+execute "add gems" do
   cwd "/vagrant/manage/"
   command "sudo apt-get install libxml2-dev libxslt-dev"
   command "rake gems:install"
@@ -18,3 +17,6 @@ execute "setup database" do
   command "rake RAILS_ENV=development db:drop db:create db:migrate"  
 end
 
+# ln -s /vagrant/server/wren.vagrant.init.sh /etc/init.d/wren
+# chmod 755 /etc/init.d/wren
+# /etc/init.d/wren start
