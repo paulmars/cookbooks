@@ -20,3 +20,5 @@ end
 # ln -s /vagrant/server/wren.vagrant.init.sh /etc/init.d/wren
 # chmod 755 /etc/init.d/wren
 # /etc/init.d/wren start
+
+#gem install mysql
